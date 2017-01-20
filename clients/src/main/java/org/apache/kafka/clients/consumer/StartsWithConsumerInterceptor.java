@@ -26,6 +26,13 @@ import org.apache.kafka.common.config.ConfigException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/*
+ * To use with consumer:
+ * ./bin/kafka-console-consumer --bootstrap-server localhost:9092 --topic streams-file-input
+ *   --consumer-property interceptor.classes=org.apache.kafka.clients.consumer.StartsWithConsumerInterceptor
+ *   --consumer-property interceptor.starts.prefix="#"
+ */
+
 public class StartsWithConsumerInterceptor<K, V> implements ConsumerInterceptor<K, V> {
 
 	private static final Logger log = LoggerFactory.getLogger(StartsWithConsumerInterceptor.class);
